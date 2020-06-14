@@ -10,8 +10,7 @@ const getAll = () => {
 const getById = pEjercicioId => {
     return new Promise((resolve, reject) => {
         db.query(
-            "select * from ejercicios where id = ?",
-            [pEjercicioId],
+            "select * from ejercicios where id = ?", [pEjercicioId],
             (err, rows) => {
                 if (err) {
                     reject(err);
@@ -30,8 +29,7 @@ const getById = pEjercicioId => {
 const create = ({ titulo, duracion, repeticiones }) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "insert into ejercicios (titulo, duracion, repeticiones) values (?,?,?)",
-            [titulo, duracion, repeticiones],
+            "insert into ejercicios (titulo, duracion, repeticiones) values (?,?,?)", [titulo, duracion, repeticiones],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -57,8 +55,7 @@ const deleteById = (EjercicioId) => {
 const update = ({ titulo, duracion, repeticiones, id }) => {
 
     return new Promise((resolve, reject) => {
-        db.query("update ejercicios set titulo=?, duracion=?, repeticiones=? where id=?",
-            [titulo, duracion, repeticiones, id],
+        db.query("update ejercicios set titulo=?, duracion=?, repeticiones=? where id=?", [titulo, duracion, repeticiones, id],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -73,8 +70,7 @@ const update = ({ titulo, duracion, repeticiones, id }) => {
 const updateById = ({ titulo, duracion, repeticiones, id }) => {
     return new Promise((resolve, reject) => {
         db.query(
-            'update ejercicios SET titulo = ?,  duracion = ?, repeticiones = ?  WHERE id = ?',
-            [titulo, duracion, repeticiones, id],
+            'update ejercicios SET titulo = ?,  duracion = ?, repeticiones = ?  WHERE id = ?', [titulo, duracion, repeticiones, id],
             (err, result) => {
                 if (err) {
                     reject(err);

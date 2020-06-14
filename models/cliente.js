@@ -1,7 +1,7 @@
 const getAll = () => {
     return new Promise((resolve, reject) => {
-        db.query('select * from clientes', (err, rows) => {
-            if (err) reject(err)
+        db.query('SELECT * FROM clientes', (err, rows) => {
+            if (err) return reject(err);
             resolve(rows);
         });
     });
@@ -47,13 +47,12 @@ const deleteById = (ClienteId) => {
 const update = ({ ClienteId, nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni }) => {
     return new Promise((resolve, reject) => {
         console.log(ClienteId);
-        db.query('Update clientes set nombre=?,apellidos =?,direccion=?,email=?,edad=?,sexo=?,fecha_inscripcion=?,cuota=?,fecha_nacimiento=?,dni=? where id=?',
-            [ClienteId, nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni], (err, result) => {
-                if (err) {
-                    return reject(err);
-                }
-                resolve(result);
-            });
+        db.query('Update clientes set nombre=?,apellidos =?,direccion=?,email=?,edad=?,sexo=?,fecha_inscripcion=?,cuota=?,fecha_nacimiento=?,dni=? where id=?', [ClienteId, nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
     });
 };
 
@@ -62,13 +61,12 @@ const updateById = ({ ClienteId, nombre, apellidos, direccion, email, edad, sexo
     return new Promise((resolve, reject) => {
 
         console.log('Updating: Id=' + ClienteId);
-        db.query('Update clientes set nombre=?,apellidos =?,direccion=?,email=?,edad=?,sexo=?,fecha_inscripcion=?,cuota=?,fecha_nacimiento=?,dni=? where id=?',
-            [nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni, ClienteId], (err, result) => {
-                if (err) {
-                    return reject(err);
-                }
-                resolve(result);
-            });
+        db.query('Update clientes set nombre=?,apellidos =?,direccion=?,email=?,edad=?,sexo=?,fecha_inscripcion=?,cuota=?,fecha_nacimiento=?,dni=? where id=?', [nombre, apellidos, direccion, email, edad, sexo, fecha_inscripcion, cuota, fecha_nacimiento, dni, ClienteId], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
     });
 };
 

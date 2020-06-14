@@ -29,8 +29,7 @@ const getById = profesorId => {
 const create = ({ nombre, experiencia }) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "insert into profesores (nombre, experiencia) values (?,?)",
-            [nombre, experiencia],
+            "insert into profesores (nombre, experiencia) values (?,?)", [nombre, experiencia],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -45,8 +44,7 @@ const create = ({ nombre, experiencia }) => {
 const deleteById = ProfesorId => {
     return new Promise((resolve, reject) => {
         db.query(
-            "delete from profesores where id = ?",
-            [ProfesorId],
+            "delete from profesores where id = ?", [ProfesorId],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -61,8 +59,7 @@ const deleteById = ProfesorId => {
 const update = ({ nombre, experiencia, id }) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "Update profesores SET nombre=?, experiencia=? where id=?",
-            [nombre, experiencia, id],
+            "Update profesores SET nombre=?, experiencia=? where id=?", [nombre, experiencia, id],
             (err, result) => {
                 if (err) {
                     reject(err);
@@ -76,8 +73,7 @@ const update = ({ nombre, experiencia, id }) => {
 const updateById = ({ nombre, experiencia, id }) => {
     return new Promise((resolve, reject) => {
         db.query(
-            "Update profesores SET nombre=?, experiencia=? where id=?",
-            [nombre, experiencia, id],
+            "Update profesores SET nombre=?, experiencia=? where id=?", [nombre, experiencia, id],
             (err, result) => {
                 if (err) {
                     reject(err);
